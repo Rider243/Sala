@@ -1,0 +1,66 @@
+* {
+    box-sizing: border-box;
+}
+
+.red {
+    background-color: red;
+    color: #fff;
+}
+
+.green {
+    background-color: lime;
+    color: #000;
+}
+
+.yellow {
+    background-color: yellow;
+    color: #000;
+    
+}
+
+
+
+
+.chart {
+    height: 450px;
+}
+
+
+
+#Density_PX_1y {
+    background-color: rgb(255, 0, 0);
+    top: -617px;
+    position: relative;
+    left: 407px;
+    width: 42px;
+    color: white;
+    font-weight: 700;
+}
+
+#Density_1y {
+    background-color: yellow;
+    top: -582px;
+    position: relative;
+    left: 362px;
+    width: 42px;
+    font-weight: 700;
+}
+
+#Density_PX_2y {
+    background-color: rgb(255, 0, 0);
+    top: -618px;
+    position: relative;
+    left: 952px;
+    width: 42px;
+    color: white;
+    font-weight: 700;
+}
+
+#Density_2y {
+    background-color: yellow;
+    top: -582px;
+    position: relative;
+    left: 907px;
+    width: 42px;
+    font-weight: 700;
+}

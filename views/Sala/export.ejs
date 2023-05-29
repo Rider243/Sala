@@ -1,0 +1,234 @@
+  <!-- Phần Header của Website -->
+  <head>
+    <!-- ////////////// CHƯƠNG TRÌNH HỆ THỐNG //////////////  -->
+
+
+    <title>Biểu đồ</title>
+
+
+            <!-- ////////////// GỌI CÁC CSS //////////////  -->
+            
+            <link rel="stylesheet" href="/CSS/Sala/Sala.css"> 
+            <link rel="stylesheet" href="/CSS/Sala/export.css">
+          
+
+            <link rel="stylesheet" href="/CSS/slidebar.css">
+ 
+
+         
+
+            <link rel="stylesheet" href="/CSS/test_slidebar.css">
+
+
+            <link rel="stylesheet" href="/CSS/fontawesome.css">
+            <link rel="stylesheet" href="/CSS/all.min.css">
+            <script src = "/js/all.min.js"></script>
+            <script src = "/js/fontawesome.min.js"></script>
+             
+  
+    <script src="/js/jquery-3.6.0.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src = "/js/FC3_Excel_Export.js"></script>
+    
+    <script src = "/js/FileSaver.js"></script>
+    
+
+ 
+            <script src="/js/FC1_Common.js"></script>
+
+            <script src="//cdn.rawgit.com/Mikhus/canvas-gauges/gh-pages/download/2.1.7/all/gauge.min.js"></script>
+
+            <script src="/js/chart_realtime.js"></script>
+
+            <script src="/js/plotly-latest.min.js"></script>
+
+ 
+   
+
+
+   
+    
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script> -->
+
+
+    <script>
+        var socket = io("10.14.12.72:8080") // IP tĩnh (hoặc IP động, hoặc 192.168.0.100)
+    </script>
+
+   
+
+</head>
+
+
+
+
+
+<!-- Phần thân của website -->
+<body onload="" >
+
+  
+
+ <!-- ////////////// Code cho slidebar////////////// -->
+ <%- include('../slidebar.ejs');   -%>
+
+
+<div id='export_screen' onmouseover="document.getElementById('main_menu').style.display = 'none';">
+
+    <div id="info_websize">
+      <img id='logo' src="/images/logo.png"  >
+      <img id='logo_sala' src="/images/emartlogo-01.png"  >
+  </div>
+  <h1 class="title_sala">BÁO CÁO SẢN XUẤT</h1>
+  
+  
+  
+  
+   
+  
+  
+  <div id='export'>
+  
+    <div id='Baocao'>
+     
+  
+    <!--Nút Xuất Excel-->
+    <button id="btt_Excel" class="button" onclick="fn_excel();
+    "></i> BÁO CÁO</button>
+    <p id = "alarm"> </p>
+  
+    <!--Date time piker-->
+    <label id="lb_Search_Start">Từ:</label>
+    <input id="dtpk_Search_Start" type="datetime-local">
+    <label id="lb_Search_End">Đến:</label>
+    <input id="dtpk_Search_End" type="datetime-local">
+    <!--Nút tìm kiếm-->
+    <button id="btt_Search" class="button" onclick="fn_SQL_By_Time();console.log('Vì sao lại không in');
+    "></i> TÌM KIẾM</button>
+
+<select id="select_kv_name" onchange="myFunction()">
+  <option value='null'>Chọn khu vực
+  <option value='kv="khu vực 1"'>Emart Sala
+  <option value='kv="khu vực 2"'>Emart Gò Vấp
+  <option value='kv="khu vực 3'>Emart Phan Huy Ích
+  </select>
+
+<select id="select_device_name_kv1" onchange="myFunction()">
+  <option value='null'>Chọn thiết bị
+  <option value='device_name="QU01"'>Lifter 1
+  <option value='device_name="QU02"'>Lifter 2
+  <option value='device_name="QU03"'>Lifter 3
+  <option value='device_name="QU04"'>Lifter 4
+  <option value='device_name="QU05"'>Lifter 5
+  <option value='device_name="QU06"'>Lifter 6
+</select>
+
+<select id="select_device_name_kv2" onchange="myFunction()">
+  <option value='null'>Chọn thiết bị
+    <option value='device_name="QU01"'>Lifter 1
+    <option value='device_name="QU02"'>Lifter 2
+    <option value='device_name="QU03"'>Lifter 3
+    <option value='device_name="QU04"'>Lifter 4
+    <option value='device_name="QU05"'>Lifter 5
+    <option value='device_name="QU06"'>Lifter 6
+</select>
+
+<select id="select_year" onchange="myFunction()">
+  <option value='null'>Chọn năm
+    <option value='year="2023"'>2023
+    <option value='year="2024"'>2024
+    <option value='year="2025"'>2025
+    <option value='year="2026"'>2026
+    <option value='year="2027"'>2027
+    <option value='year="2028"'>2028
+    <option value='year="2029"'>2029
+    <option value='year="2030"'>2030
+    <option value='year="2031"'>2031
+    <option value='year="2032"'>2032
+    <option value='year="2033"'>2033
+    <option value='year="2034"'>2034
+</select>
+
+<select id="select_month" onchange="myFunction()">
+  <option value='null'>Chọn tháng
+    <option value='month="1"'>Tháng 1
+    <option value='month="2"'>Tháng 2
+    <option value='month="3"'>Tháng 3
+    <option value='month="4"'>Tháng 4
+    <option value='month="5"'>Tháng 5
+    <option value='month="6"'>Tháng 6
+    
+    <option value='month="7"'>Tháng 7
+    <option value='month="8"'>Tháng 8
+    <option value='month="9"'>Tháng 9
+    <option value='month="10"'>Tháng 10
+    <option value='month="11"'>Tháng 11
+    <option value='month="12"'>Tháng 12
+</select>
+   
+  <script>
+    
+  function myFunction() 
+  {
+    kv_send_sql = document.getElementById("select_kv_name").value; 
+    console.log(kv_send_sql);
+    socket.emit('Client-send-kv_sql', kv_send_sql);
+
+
+    if (kv_send_sql=="null"  ) 
+    {     
+      document.getElementById("select_device_name_kv1").style.display="none";
+      document.getElementById("select_device_name_kv2").style.display="none";
+    }
+    else if (kv_send_sql=='kv="khu vực 1"')
+    {
+      document.getElementById("select_device_name_kv1").style.display="block";
+      document.getElementById("select_device_name_kv2").style.display="none";
+      device_send_sql = document.getElementById("select_device_name_kv1").value; 
+      console.log(device_send_sql);
+      socket.emit('Client-send-device_name_sql', device_send_sql);
+    }
+    else
+    {
+      document.getElementById("select_device_name_kv1").style.display="none";
+      document.getElementById("select_device_name_kv2").style.display="block";
+      device_send_sql = document.getElementById("select_device_name_kv2").value; 
+      console.log(device_send_sql);
+      socket.emit('Client-send-device_name_sql', device_send_sql);
+    }
+
+
+  }
+  </script>
+
+    </div>
+  
+  
+  
+  <!-- ////////////////// Bảng hiển thị giá trị /////////////////// -->
+          <!--Table display-->
+          <div id = "div_table_export_coolwater">
+            <table id="table_export_coolwater" >
+                <thead>
+                <tr>
+
+                  <th >Thời gian</th>
+                  
+                  <th >Tên thiết bị</th>
+
+                  <th >Sản lượng</th>
+
+                </tr>
+                </thead>
+            </table>
+         </div>
+  
+  
+  </div>
+  
+  <div id="chart_total_lifter" class="chart"></div>
+  <script>fc2_Draw_Chart_total_lifter();  </script>
+  </div>
+
+ 
+      
+</body>

@@ -1,0 +1,57 @@
+
+.title_sala{
+    text-align: center; /* Canh giữa tiêu đề */
+    margin: auto; /* Tạo khoảng trống tự động tại trên và dưới */
+    width: 50%; /* Độ rộng của tiêu đề */
+    padding: 8px; /* Tạo khoảng trống tại trên và dưới */
+    color: rgb(87, 87, 243); /* Màu xanh */
+    font-family: Cambria, sans-serif;
+    font-size: 50px;
+}
+
+#images_layout{
+    top:0px;
+    max-width:1850px ;
+    max-height: 1000px ;
+    position:absolute ;
+    
+  
+    left: 5;
+}
+
+
+
+#error_screen{
+    background-image: none;
+    top: 0px;
+    width: 100%; 
+    height:100% ;
+    position:absolute ;
+    left:  5;
+    background-color:  rgb(250, 251, 252);   
+}
+ 
+#chart_screen{
+    background-image: none;
+    top: 0px;
+    width: 100%; 
+    height:100% ;
+    position:absolute ;
+    left:  5;
+    background-color:  rgb(250, 251, 252);  
+}
+
+ 
+
+ 
+
+
+/* #export_screen{
+    background-image: none;
+    top: 0px;
+    width:100% ;
+    height:100% ;
+    position:absolute ;
+    left: 5;
+    background-color:  rgb(251, 253, 255); 
+} */

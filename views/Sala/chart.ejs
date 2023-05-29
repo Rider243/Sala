@@ -1,0 +1,210 @@
+  <!-- Phần Header của Website -->
+  <head>
+    <!-- ////////////// CHƯƠNG TRÌNH HỆ THỐNG //////////////  -->
+
+
+    <title>Biểu đồ</title>
+
+
+            <!-- ////////////// GỌI CÁC CSS //////////////  -->
+            <link rel="stylesheet" type="text/css" href="/CSS/Sala/Sala.css">
+            <link rel="stylesheet" type="text/css" href="/CSS/Sala/chart.css">
+           
+            
+        
+            <!-- <link rel="stylesheet" type="text/css" href="./CSS/slidebar.css"> -->
+  
+            <link rel="stylesheet" type="text/css" href="/CSS/test_slidebar.css">
+
+
+            <!-- <link rel="stylesheet" type="text/css" href="./CSS/fontawesome.css"> -->
+
+            <link rel="stylesheet" type="text/css" href="/CSS/all.min.css">
+
+            <script src = "/js/all.min.js"></script>
+
+            <!-- <script src = "/js/fontawesome.min.js"></script> -->
+            <!-- /////////////GỌI CÁC JS????????? -->
+  
+     
+            <script src="/js/jquery-3.6.0.min.js"></script>
+            <script src="/socket.io/socket.io.js"></script>
+            <script src = "/js/FC3_Excel_Export.js"></script>
+            <script src="/js/plotly-latest.min.js"></script>
+            <script src = "/js/FileSaver.js"></script>
+            <script src="/js/chart_realtime.js"></script> 
+        
+         
+            <script src="/js/FC1_Common.js"></script>
+
+            <script src="//cdn.rawgit.com/Mikhus/canvas-gauges/gh-pages/download/2.1.7/all/gauge.min.js"></script>
+
+            
+
+ 
+
+    
+    <script src='/js/plotly-latest.min.js'></script>
+     
+   
+    
+    
+
+
+    <script>
+        var socket = io("10.14.12.72:8080") // IP tĩnh (hoặc IP động, hoặc 192.168.0.100)
+    </script>
+
+   
+
+</head>
+
+
+
+
+
+<!-- Phần thân của website -->
+<body onload="myFunction(); drawchart();fn_SQL_By_Time_info_lifter();
+
+">
+
+  
+
+ <!-- ////////////// Code cho slidebar////////////// -->
+ <%- include('../slidebar.ejs');   -%>
+
+
+<div id='chart_screen' onmouseover="document.getElementById('main_menu').style.display = 'none';">
+
+    <div id="info_websize">
+      <img id='logo' src="/images/logo.png"  >
+      <img id='logo_sala' src="/images/emartlogo-01.png"  >
+  </div>
+  
+  
+  <h1 class="title_sala">BÁO CÁO SẢN XUẤT</h1>
+
+  <div id='chart_th'>
+
+   
+
+        
+                  <div id='Baocao'>
+                   
+      
+                    <!--Nút Xuất Excel-->
+                    <button id="btt_Excel" class="button" onclick=" socket.emit('Client-send-choice_export','info_lifter_export');
+                                                                    fn_excel_lifter_export();
+                                                                   
+                    "></i> BÁO CÁO</button>
+                
+                   <!-- <button id="btt_Excel_if_burner" class="button" onclick="fn_excel_info_burner();
+                   "></i> BÁO CÁO burner</button> -->
+                
+                    <p id = "alarm"> </p>
+                  
+                    <!--Date time piker-->
+                    <label id="lb_Search_Start">Từ:</label>
+                    <input id="dtpk_Search_Start" type="datetime-local">
+                    <label id="lb_Search_End">Đến:</label>
+                    <input id="dtpk_Search_End" type="datetime-local">
+                    <!--Nút tìm kiếm-->
+                    <button id="btt_Search" class="button" onclick=" socket.emit('Client-send-choice_export','info_lifter_export');fn_SQL_By_Time_info_lifter();drawchart()
+                   
+                    "></i> TÌM KIẾM</button>
+
+
+                    <button id="btt_info_daily" class="button" onclick=" 
+                                      
+                    "></i> Dữ liệu hằng ngày</button>
+                
+              
+                <select id="select_kv_name" onchange="myFunction()">
+                  <option value='null'>Chọn khu vực
+                  <option value='kv="Sala"'>Emart Sala
+                  <option value='kv="Govap"'>Emart Gò Vấp
+                  <option value='kv="PhanHuyIch'>Emart Phan Huy Ích
+                  </select>
+                
+                <select id="select_type" onchange="myFunction()">
+                  <option value='null'>Chọn kiểu lọc
+                  <option value='day'>Theo ngày
+                  <option value='month'>Theo tháng
+                </select>
+                
+
+
+            
+                   
+                  <script>
+                    
+                  function myFunction() 
+                  {
+                    kv_send_sql = document.getElementById("select_kv_name").value; 
+                    socket.emit('Client-send-kv_sql', kv_send_sql);
+                
+                
+                   if (kv_send_sql=='kv="Sala"')
+                    {
+                       
+                      device_send_sql = document.getElementById("select_type").value; 
+                      console.log(device_send_sql);
+                      socket.emit('Client-send-select_type', device_send_sql);
+
+                    }
+                    else
+                    { 
+                      device_send_sql = document.getElementById("select_type").value; 
+                      console.log(device_send_sql);
+                      socket.emit('Client-send-select_type', device_send_sql);
+                    }
+                
+                
+                  }
+                  </script>
+                
+                
+                </div>
+      
+                 <!--Table display-->
+                 <div id = "div_Table_info">
+                  <table id="table_info" >
+                      <thead>
+                        <tr >
+    
+                          <th >Thời gian</th>
+                  
+                          
+                          <th >Lifter 1</th>
+    
+                          <th >Lifter 2</th>
+
+                          <th >Lifter 3</th>
+
+                          <th >Lifter 3</th>
+
+                          <th >Lifter 5</th>
+
+                          <th >Lifter 6</th>
+
+                          <th >Final rail</th>
+    
+
+                         
+    
+                      </tr>
+                      </thead>
+                  </table>
+                </div>
+    
+    </div>
+     
+<div id="chart_total_lifter"></div>
+
+
+ 
+</div>
+</div>
+ 
+      
+</body>

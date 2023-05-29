@@ -1,0 +1,36 @@
+/* Slide bar */
+
+
+#main{
+    border: none; 
+    position: absolute; 
+    max-width:1653px ;
+    max-height:977px ;
+    left: 199px; top: 0px; 
+    width: auto; height: auto;
+}
+
+
+
+#images_background{
+    background-image: none;
+    width:1687px ;
+    height:977px ;
+    position:absolute ;
+    left: 0;
+  
+}
+
+#logo{
+    background-color: aliceblue;
+    position:absolute ;
+    width: 300px;
+    height:68px ;
+    left: 0;  
+     
+}
+
+ 
+
+
+

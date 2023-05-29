@@ -1,0 +1,63 @@
+  <!-- Phần Header của Website -->
+  <head>
+    <!-- ////////////// CHƯƠNG TRÌNH HỆ THỐNG //////////////  -->
+
+
+    <title>Scada hệ thống giám sát trên internet</title>
+
+
+            <!-- ////////////// GỌI CÁC CSS //////////////  -->
+            <!-- <link rel="stylesheet" href="/CSS/interface.css">
+            <link rel="stylesheet" href="/CSS/slidebar.css"> -->
+<!--             
+            <link rel="stylesheet" 
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"> -->
+
+
+            <link rel="stylesheet" href="/CSS/fontawesome.css">
+            <link rel="stylesheet" href="/CSS/all.min.css">
+            <script src = "/js/all.min.js"></script>
+            <script src = "/js/fontawesome.min.js"></script>
+
+            <link rel="stylesheet" href="/CSS/test_slidebar.css">
+            <!-- /////////////GỌI CÁC JS????????? -->
+  
+    <script src="/js/jquery-3.6.0.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/FC3_Excel_Export.js"></script>
+    <script src="/js/plotly-2.8.3.min.js"></script>
+    <script src="/js/FileSaver.js"></script>
+    
+    
+    <script src="/js/slidebar_test.js"></script>
+    <script src="/js/FC1_Common.js"></script>
+    <script src="/js/FC2_UserManagement.js"></script>
+    
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script> -->
+    
+ 
+
+    <script>
+      var socket = io("10.14.12.72:8080/") // IP tĩnh (hoặc IP động, hoặc 192.168.0.100)
+    </script>
+
+   
+
+</head>
+
+
+<!-- Phần thân của website -->
+<body  >
+
+  <%- include('./slidebar.ejs');   -%>
+    
+   <div id ='main' > 
+
+    <img id='images_background' src='/images/background.jpg' onmouseover="document.getElementById('main_menu').style.display = 'none';" />
+    <img id='logo' src="/images/logo.png"  >
+  </div>
+  <script></script>
+
+</body>
+
+
